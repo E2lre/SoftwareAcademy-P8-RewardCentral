@@ -25,4 +25,11 @@ public class RewardCentralControler {
         }
 
     }
+    @GetMapping(value = "getTest")
+    @ResponseStatus(HttpStatus.OK)
+    public String getTest (@RequestParam String attractionId, @RequestParam String userId)  {
+    //public String getTest ()  {
+      return "Hello " + attractionId +" - " + userId;
+
+    }
 }
