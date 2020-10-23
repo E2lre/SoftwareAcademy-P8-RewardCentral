@@ -12,6 +12,12 @@ public class RewardCentralServiceImpl implements RewardCentralService {
     @Autowired
     private ExtModule extModule;
 
+    /**
+     * give attraction reward points
+     * @param attractionId attraction id in UUID format
+     * @param userId user id in UUID format
+     * @return reward points for attraction
+     */
     @Override
     public int getAttractionRewardPoints(UUID attractionId, UUID userId) {
 

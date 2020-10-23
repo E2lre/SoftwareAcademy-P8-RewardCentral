@@ -17,11 +17,18 @@ public class RewardCentralControler {
     @Autowired
     private RewardCentralService rewardCentralService;
 
+    /**
+     * give attraction reward points
+     * @param attractionId atraction id in UUID format
+     * @param userId user id in UUID format
+     * @return reward point for the attraction
+     * @throws UUIDException if id are not UUID
+     */
     @GetMapping(value = "getAttractionRewardPoints")
     @ResponseStatus(HttpStatus.OK)
     public int getAttractionRewardPoints (@RequestParam String attractionId, @RequestParam String userId) throws UUIDException {
         try {
-            logger.info("Start getAttractionRewardPoints for attractionId : " + attractionId +" et userId : " +userId );
+            logger.debug("Start getAttractionRewardPoints for attractionId : " + attractionId +" et userId : " +userId );
             UUID attractionIdUUID = UUID.fromString(attractionId);
             UUID userIdUUID = UUID.fromString(userId);
             return rewardCentralService.getAttractionRewardPoints(attractionIdUUID,userIdUUID);
@@ -30,12 +37,5 @@ public class RewardCentralControler {
         }
 
    }
- /*   @GetMapping(value = "getTest")
-    @ResponseStatus(HttpStatus.OK)
-    public String getTest (@RequestParam String attractionId, @RequestParam String userId)  {
-    //public String getTest ()  {
-        logger.info("Start getTest for attractionId : " + attractionId +" et userId : " +userId );
-        return "Hello " + attractionId +" - " + userId;
 
-    }*/
 }
