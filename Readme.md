@@ -12,20 +12,24 @@ This app use SPRINT BOOT, FeignClient.
 - Java 1.8 or later
 - Spring Boot 2.2.6
 - Gradle 2.2.5
+- Docker (Optional)
 
 # Installation
 
-No Database creation needed:
-
+##No Database creation needed
+###Without Docker
 To start the application whitout docker start sub-micro-service with or without docker in build libs directories: 
 - RewardCentral : java -jar rewardCentral-0.0.1-SNAPSHOT.jar
 
-
-Docker construction in project directory :  
-docker build --build-arg JAR_FILE=build/libs/*.jar -t springio/gs-spring-boot-docker-rewardcentral .
+###With Docker
+Docker construction in project directory 
+- docker build --build-arg JAR_FILE=build/libs/*.jar -t springio/gs-spring-boot-docker-rewardcentral .
 
 Docker execution : 
-docker run -p 8083:8083 --name RewardCentral springio/gs-spring-boot-docker-rewardcentral
+- docker run -p 8083:8083 --name RewardCentral springio/gs-spring-boot-docker-rewardcentral
+
+or
+- docker run -p 8083:8083 --name RewardCentral --cpus="1" springio/gs-spring-boot-docker-rewardcentral
 
 # Architecture Diagram
 ![ScreenShot](Architecture.png)
