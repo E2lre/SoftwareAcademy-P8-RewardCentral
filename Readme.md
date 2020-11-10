@@ -5,14 +5,15 @@ This app use SPRINT BOOT, FeignClient.
 
 ## Getting Started
 
-- Endpoint : http://localhost:8081/
+- Endpoint : http://localhost:8083/
+- Or : http://rewardcentral:8083/
 
 ## Prerequisites
 
 - Java 1.8 or later
 - Spring Boot 2.2.6
 - Gradle 2.2.5
-- Docker (Optional)
+- Docker 2.5.0.0 (Optional)
 
 # Installation
 
@@ -23,13 +24,13 @@ To start the application whitout docker start sub-micro-service with or without 
 
 ### With Docker
 Docker construction in project directory 
-- docker build --build-arg JAR_FILE=build/libs/*.jar -t springio/gs-spring-boot-docker-rewardcentral .
+- docker build --build-arg JAR_FILE=build/libs/*.jar -t rewardcentral .
 
 Docker execution : 
-- docker run -p 8083:8083 --name RewardCentral springio/gs-spring-boot-docker-rewardcentral
+- docker run -p 8083:8083 --name RewardCentral rewardcentral
 
 or
-- docker run -p 8083:8083 --name RewardCentral --cpus="1" springio/gs-spring-boot-docker-rewardcentral
+- docker run -p 8083:8083 --name RewardCentral --cpus="1" rewardcentral
 
 # Architecture Diagram
 ![ScreenShot](Architecture.png)
